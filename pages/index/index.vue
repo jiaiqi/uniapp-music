@@ -137,7 +137,9 @@
 			}
 
 		},
-
+		onShareAppMessage() {
+			
+		},
 		mounted() {
 			this.getData()
 		},
@@ -227,6 +229,7 @@
 			}
 		}
 	}
+	
 </script>
 
 <style lang="scss" scoped>
