@@ -188,14 +188,10 @@ __webpack_require__.r(__webpack_exports__);
     initPlay: function initPlay() {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var _yield$_this2$$api$se, data, _yield$_this2$$api$ge, _data;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:if (!(
                 _this2.playInfo && _this2.playInfo.id)) {_context2.next = 22;break;}if (!
                 _this2.playInfo.source) {_context2.next = 9;break;}_context2.next = 4;return (
-
-
                   _this2.$api.searchQQMusicUrl({
                     id: _this2.playInfo.id }));case 4:_yield$_this2$$api$se = _context2.sent;data = _yield$_this2$$api$se.data;
 
                 _this2.$audio.src = data[_this2.playInfo.id];_context2.next = 22;break;case 9:_context2.next = 11;return (
-
-
 
                   _this2.$api.getMusicUrl({
                     id: _this2.playInfo.id }));case 11:_yield$_this2$$api$ge = _context2.sent;_data = _yield$_this2$$api$ge.data;
@@ -217,6 +213,7 @@ __webpack_require__.r(__webpack_exports__);
                   }
                   _this2.$store.dispatch('changePlay', 'next');
                 });
+
                 _this2.$audio.onPrev(function () {
                   if (_this2.playList.length == 1) {
                     return;
@@ -229,6 +226,7 @@ __webpack_require__.r(__webpack_exports__);
                   }
                   _this2.$store.dispatch('changePlay', 'next');
                 });case 22:case "end":return _context2.stop();}}}, _callee2);}))();
+
 
 
     },
@@ -264,7 +262,6 @@ __webpack_require__.r(__webpack_exports__);
           } else {
             this.initPlay();
           }
-
         } else {
           this.modelShow = false;
         }

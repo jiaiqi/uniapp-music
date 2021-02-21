@@ -33,6 +33,7 @@
 				<text class="iconfont icon-liebiao" style="margin-left: 65rpx;font-size: 56rpx;" @click.stop="modelShow = true"></text>
 			</view>
 		</view>
+		Ï
 		<play-list :modelShow="modelShow" @handleClose="modelShow = false" @backHome="backHome"></play-list>
 	</div>
 </template>
@@ -58,7 +59,8 @@ export default {
 			audioSrc: '',
 			likeList: []
 		};
-slideChange	},
+		slideChange;
+	},
 	components: { playList },
 	computed: {
 		playInfo() {

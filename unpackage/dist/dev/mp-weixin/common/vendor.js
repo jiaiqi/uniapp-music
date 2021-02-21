@@ -9289,8 +9289,25 @@ var index = {
 // 		console.log(audio.duration);
 // 	}, 30)
 // })
+var audio = null;
 
-var audio = uni.getBackgroundAudioManager();
+audio = uni.getBackgroundAudioManager();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 module.exports = {
   audio: audio };
