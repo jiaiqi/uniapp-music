@@ -3,7 +3,8 @@ import {
 } from "@/utils/cache.js"
 
 // const baseURL = 'http://localhost:3000'
-const baseURL = 'http://api.jiaiqi.cn:521'
+const baseURL = 'https://api.jiaiqi.cn'
+// const baseURL = 'http://api.jiaiqi.cn:521'
 // const baseURL = 'https://autumnfish.cn'
 // const baseURL='https://api.klutz.cc'
 // const baseURL='https://tree.xingyuncm.cn'
@@ -13,16 +14,23 @@ const baseURL = 'http://api.jiaiqi.cn:521'
 
 const request = {
 	get(url, data) {
-
+		let header = {
+			'Accept': 'application/json',
+			'Content-Type': 'application/x-www-form-urlencoded', //自定义请求头信息
+			// #ifdef MP-WEIXIN
+			'cookie': getCache('COOKIE')
+			// #endif
+			
+		}
+		if (getCache('COOKIE')) {
+			header.ticket = getCache('COOKIE')
+			// header.withCredentials = true
+		}
 		return new Promise((resolve, reject) => {
 			uni.request({
 				url: baseURL + url,
 				data: data,
-				header: {
-					'Accept': 'application/json',
-					'Content-Type': 'application/x-www-form-urlencoded', //自定义请求头信息
-					'cookie': getCache('COOKIE')
-				},
+				header: header,
 				method: "GET",
 				success: (response) => {
 					let res = response.data
@@ -39,21 +47,17 @@ const request = {
 						showError(error.response);
 					}
 				},
-
-
 			});
 		})
-
 	},
 	post(url, data) {
-
 		return new Promise((resolve, reject) => {
 			uni.request({
 				url: baseURL + url,
 				data: data,
 				header: {
 					'Accept': 'application/json',
-					'Content-Type': 'application/json',
+					'Content-Type': 'application/json'
 				},
 				method: "POST",
 				success: (response) => {
@@ -63,7 +67,6 @@ const request = {
 					} else {
 						reject(res)
 						showError(res);
-
 					}
 				},
 				fail: (error) => {

@@ -4,7 +4,8 @@
 			"path": "pages/index/index",
 			"style": {
 				"enablePullDownRefresh": true,
-				"backgroundTextStyle": "dark"
+				"backgroundTextStyle": "dark",
+				"navigationBarTitleText":"纯纯音乐"
 			}
 		}, 
 		{

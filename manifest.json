@@ -44,7 +44,9 @@
                 ]
             },
             "ios" : {},
-            "sdkConfigs" : {},
+            "sdkConfigs" : {
+                "ad" : {}
+            },
             "icons" : {
                 "android" : {
                     "mdpi" : "unpackage/res/icons/48x48.png",
@@ -103,5 +105,9 @@
     },
     "mp-toutiao" : {
         "usingComponents" : true
+    },
+    "h5" : {
+        "title" : "cc-music",
+        "domain" : ""
     }
 }

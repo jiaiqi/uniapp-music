@@ -1,9 +1,10 @@
 <template>
 	<div class="playList-container">
 		<div class="list-description">
-			<div class="mask">
-				<div class="album-cover bgImg" :style="{ 'background-image': 'url(' + dayRecommendList[0].al.picUrl + 'param?300y300' + ')' }"></div>
-				<div class="cover-mask" style="opacity:0.6;"></div>
+			<div class="mask" v-if="dayRecommendList.length > 0">
+				<image class="album-cover bgImg" :src="topImage" mode="aspectFill"></image>
+				<!-- <div class="album-cover bgImg" :style="{ 'background-image': topImage}"></div> -->
+				<!-- <div class="cover-mask" style="opacity:0.6;"></div> -->
 			</div>
 			<cu-custom style="color:#fff" bgColor="unset" :isBack="true"></cu-custom>
 		</div>
@@ -13,13 +14,7 @@
 				播放全部
 			</div>
 			<scroll-view scroll-y scroll-with-animation style="height: calc(100% - 40px);margin-top: 10px;">
-				<div
-					class="music-item flex"
-					:class="{ lastMusic: index == musicList.length - 1 }"
-					v-for="(item, index) in dayRecommendList"
-					:key="item.id"
-					@click="handlePlayMusic(item)"
-				>
+				<div class="music-item flex" v-for="(item, index) in dayRecommendList" :key="item.id" @click="handlePlayMusic(item)">
 					<span class="index">{{ index + 1 }}</span>
 					<image :src="item.al.picUrl + '?param=60y60'" mode="" class="musicImg"></image>
 					<div class="rightInfo">
@@ -51,6 +46,12 @@ export default {
 		};
 	},
 	computed: {
+		topImage() {
+			if (this.dayRecommendList.length > 0) {
+				return this.dayRecommendList[0].al.picUrl + 'param?300y300';
+				// return 'url(' + this.dayRecommendList[0].al.picUrl + 'param?300y300' + ')'
+			}
+		},
 		playInfo() {
 			return this.$store.state.playInfo;
 		},

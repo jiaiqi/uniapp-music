@@ -1,6 +1,7 @@
 {
   "enablePullDownRefresh": true,
   "backgroundTextStyle": "dark",
+  "navigationBarTitleText": "纯纯音乐",
   "usingComponents": {
     "song-list": "/pages/index/components/songList",
     "music-list": "/pages/index/components/musicList",

@@ -2,7 +2,7 @@
 	<view class="recommend-container ">
 		<view class="bg-gradual-orange">
 			<cu-custom bgColor="bg-gradual-orange">
-				<block slot="content">Uni Music</block>
+				<block slot="content">纯纯音乐</block>
 			</cu-custom>
 			<view class="cu-bar search">
 				<view class="search-form round">

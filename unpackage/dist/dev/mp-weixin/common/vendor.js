@@ -7870,9 +7870,9 @@ module.exports = g;
 
 /***/ }),
 /* 4 */
-/*!****************************************************!*\
-  !*** D:/user/Desktop/gist006-music_1.6/pages.json ***!
-  \****************************************************/
+/*!************************************************************************!*\
+  !*** /Users/jiaqi/document/workspace/uni-temp/uniapp-music/pages.json ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -8013,9 +8013,9 @@ function normalizeComponent (
 
 /***/ }),
 /* 11 */
-/*!********************************************************!*\
-  !*** D:/user/Desktop/gist006-music_1.6/store/index.js ***!
-  \********************************************************/
+/*!****************************************************************************!*\
+  !*** /Users/jiaqi/document/workspace/uni-temp/uniapp-music/store/index.js ***!
+  \****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9269,9 +9269,9 @@ var index = {
 
 /***/ }),
 /* 13 */
-/*!********************************************************!*\
-  !*** D:/user/Desktop/gist006-music_1.6/utils/audio.js ***!
-  \********************************************************/
+/*!****************************************************************************!*\
+  !*** /Users/jiaqi/document/workspace/uni-temp/uniapp-music/utils/audio.js ***!
+  \****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9298,9 +9298,9 @@ module.exports = {
 
 /***/ }),
 /* 14 */
-/*!********************************************************!*\
-  !*** D:/user/Desktop/gist006-music_1.6/utils/cache.js ***!
-  \********************************************************/
+/*!****************************************************************************!*\
+  !*** /Users/jiaqi/document/workspace/uni-temp/uniapp-music/utils/cache.js ***!
+  \****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9320,9 +9320,9 @@ var removeCache = function removeCache(key) {
 
 /***/ }),
 /* 15 */
-/*!*************************************************************!*\
-  !*** D:/user/Desktop/gist006-music_1.6/api/modules/user.js ***!
-  \*************************************************************/
+/*!*********************************************************************************!*\
+  !*** /Users/jiaqi/document/workspace/uni-temp/uniapp-music/api/modules/user.js ***!
+  \*********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9376,9 +9376,9 @@ var getUserHistory = function getUserHistory(params) {
 
 /***/ }),
 /* 16 */
-/*!**********************************************************!*\
-  !*** D:/user/Desktop/gist006-music_1.6/utils/request.js ***!
-  \**********************************************************/
+/*!******************************************************************************!*\
+  !*** /Users/jiaqi/document/workspace/uni-temp/uniapp-music/utils/request.js ***!
+  \******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9388,7 +9388,8 @@ var getUserHistory = function getUserHistory(params) {
 
 
 // const baseURL = 'http://localhost:3000'
-var baseURL = 'http://api.jiaiqi.cn:521';
+var baseURL = 'https://api.jiaiqi.cn';
+// const baseURL = 'http://api.jiaiqi.cn:521'
 // const baseURL = 'https://autumnfish.cn'
 // const baseURL='https://api.klutz.cc'
 // const baseURL='https://tree.xingyuncm.cn'
@@ -9398,16 +9399,23 @@ var baseURL = 'http://api.jiaiqi.cn:521';
 
 var request = {
   get: function get(url, data) {
+    var header = {
+      'Accept': 'application/json',
+      'Content-Type': 'application/x-www-form-urlencoded', //自定义请求头信息
 
+      'cookie': (0, _cache.getCache)('COOKIE') };
+
+
+
+    if ((0, _cache.getCache)('COOKIE')) {
+      header.ticket = (0, _cache.getCache)('COOKIE');
+      // header.withCredentials = true
+    }
     return new Promise(function (resolve, reject) {
       uni.request({
         url: baseURL + url,
         data: data,
-        header: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/x-www-form-urlencoded', //自定义请求头信息
-          'cookie': (0, _cache.getCache)('COOKIE') },
-
+        header: header,
         method: "GET",
         success: function success(response) {
           var res = response.data;
@@ -9425,13 +9433,9 @@ var request = {
           }
         } });
 
-
-
     });
-
   },
   post: function post(url, data) {
-
     return new Promise(function (resolve, reject) {
       uni.request({
         url: baseURL + url,
@@ -9448,7 +9452,6 @@ var request = {
           } else {
             reject(res);
             showError(res);
-
           }
         },
         fail: function fail(error) {
@@ -9520,9 +9523,9 @@ request;exports.default = _default;
 
 /***/ }),
 /* 17 */
-/*!******************************************************!*\
-  !*** D:/user/Desktop/gist006-music_1.6/api/index.js ***!
-  \******************************************************/
+/*!**************************************************************************!*\
+  !*** /Users/jiaqi/document/workspace/uni-temp/uniapp-music/api/index.js ***!
+  \**************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9548,9 +9551,9 @@ singer);exports.default = _default;
 
 /***/ }),
 /* 18 */
-/*!*************************************************************!*\
-  !*** D:/user/Desktop/gist006-music_1.6/api/modules/home.js ***!
-  \*************************************************************/
+/*!*********************************************************************************!*\
+  !*** /Users/jiaqi/document/workspace/uni-temp/uniapp-music/api/modules/home.js ***!
+  \*********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9636,9 +9639,9 @@ var getSelectionData = function getSelectionData() {
 
 /***/ }),
 /* 19 */
-/*!***************************************************************!*\
-  !*** D:/user/Desktop/gist006-music_1.6/api/modules/search.js ***!
-  \***************************************************************/
+/*!***********************************************************************************!*\
+  !*** /Users/jiaqi/document/workspace/uni-temp/uniapp-music/api/modules/search.js ***!
+  \***********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9713,9 +9716,9 @@ var getLyric = function getLyric(params) {
 
 /***/ }),
 /* 20 */
-/*!*****************************************************************!*\
-  !*** D:/user/Desktop/gist006-music_1.6/api/modules/playList.js ***!
-  \*****************************************************************/
+/*!*************************************************************************************!*\
+  !*** /Users/jiaqi/document/workspace/uni-temp/uniapp-music/api/modules/playList.js ***!
+  \*************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9742,9 +9745,9 @@ var getPlayDetail = function getPlayDetail(params) {
 
 /***/ }),
 /* 21 */
-/*!***********************************************************!*\
-  !*** D:/user/Desktop/gist006-music_1.6/api/modules/qq.js ***!
-  \***********************************************************/
+/*!*******************************************************************************!*\
+  !*** /Users/jiaqi/document/workspace/uni-temp/uniapp-music/api/modules/qq.js ***!
+  \*******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9780,9 +9783,9 @@ var searchQQMusicLyric = function searchQQMusicLyric(params) {
 
 /***/ }),
 /* 22 */
-/*!************************************************************!*\
-  !*** D:/user/Desktop/gist006-music_1.6/utils/qqRequest.js ***!
-  \************************************************************/
+/*!********************************************************************************!*\
+  !*** /Users/jiaqi/document/workspace/uni-temp/uniapp-music/utils/qqRequest.js ***!
+  \********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9884,9 +9887,9 @@ request;exports.default = _default;
 
 /***/ }),
 /* 23 */
-/*!*****************************************************************!*\
-  !*** D:/user/Desktop/gist006-music_1.6/api/modules/songList.js ***!
-  \*****************************************************************/
+/*!*************************************************************************************!*\
+  !*** /Users/jiaqi/document/workspace/uni-temp/uniapp-music/api/modules/songList.js ***!
+  \*************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9911,9 +9914,9 @@ var getSongList = function getSongList(params) {
 
 /***/ }),
 /* 24 */
-/*!*****************************************************************!*\
-  !*** D:/user/Desktop/gist006-music_1.6/api/modules/rankList.js ***!
-  \*****************************************************************/
+/*!*************************************************************************************!*\
+  !*** /Users/jiaqi/document/workspace/uni-temp/uniapp-music/api/modules/rankList.js ***!
+  \*************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9930,9 +9933,9 @@ var getRankList = function getRankList() {
 
 /***/ }),
 /* 25 */
-/*!***************************************************************!*\
-  !*** D:/user/Desktop/gist006-music_1.6/api/modules/singer.js ***!
-  \***************************************************************/
+/*!***********************************************************************************!*\
+  !*** /Users/jiaqi/document/workspace/uni-temp/uniapp-music/api/modules/singer.js ***!
+  \***********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10762,9 +10765,9 @@ if (hadRuntime) {
 
 /***/ }),
 /* 35 */
-/*!********************************************************!*\
-  !*** D:/user/Desktop/gist006-music_1.6/utils/index.js ***!
-  \********************************************************/
+/*!****************************************************************************!*\
+  !*** /Users/jiaqi/document/workspace/uni-temp/uniapp-music/utils/index.js ***!
+  \****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10908,9 +10911,9 @@ function getName(val) {
 /* 98 */,
 /* 99 */,
 /* 100 */
-/*!*****************************************************************!*\
-  !*** D:/user/Desktop/gist006-music_1.6/plugins/pinyin/utils.js ***!
-  \*****************************************************************/
+/*!*************************************************************************************!*\
+  !*** /Users/jiaqi/document/workspace/uni-temp/uniapp-music/plugins/pinyin/utils.js ***!
+  \*************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10958,9 +10961,9 @@ function getGroupByPinyin(arr) {var key = arguments.length > 1 && arguments[1] !
 
 /***/ }),
 /* 101 */
-/*!********************************************************************!*\
-  !*** D:/user/Desktop/gist006-music_1.6/plugins/pinyin/toPinyin.js ***!
-  \********************************************************************/
+/*!****************************************************************************************!*\
+  !*** /Users/jiaqi/document/workspace/uni-temp/uniapp-music/plugins/pinyin/toPinyin.js ***!
+  \****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11045,9 +11048,9 @@ toPinyin;exports.default = _default;
 
 /***/ }),
 /* 102 */
-/*!******************************************************************!*\
-  !*** D:/user/Desktop/gist006-music_1.6/plugins/pinyin/pinyin.js ***!
-  \******************************************************************/
+/*!**************************************************************************************!*\
+  !*** /Users/jiaqi/document/workspace/uni-temp/uniapp-music/plugins/pinyin/pinyin.js ***!
+  \**************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
