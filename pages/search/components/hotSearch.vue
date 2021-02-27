@@ -52,7 +52,7 @@ export default {
 			display: inline-block;
 			&.topThree {
 				.index {
-					color: #ff9700;
+					color: #e54d42;
 				}
 				.word {
 					font-family: 'Microsoft Yahei', Arial, Helvetica, sans-serif;

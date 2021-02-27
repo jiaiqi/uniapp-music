@@ -5,8 +5,8 @@
 				<view class="zy-song-item flex align-center" @click="addPlayed(k)" v-for="(k, i) in item" :key="k.id">
 					<image :src="getImgUrl(k)" mode="scaleToFill" class="music-song-item-image"></image>
 					<view class="music-text">
-						<text class="music-song-item-name" :style="{ color: k.id == playInfo.id ? '#ff9700' : '#000' }">{{ k.name }}</text>
-						<text class="music-song-item-author" :style="{ color: k.id == playInfo.id ? '#ff9700' : '#666' }">- {{ getAuthor(k) }}</text>
+						<text class="music-song-item-name" :style="{ color: k.id == playInfo.id ? '#e54d42' : '#000' }">{{ k.name }}</text>
+						<text class="music-song-item-author" :style="{ color: k.id == playInfo.id ? '#e54d42' : '#666' }">- {{ getAuthor(k) }}</text>
 					</view>
 					<text class="iconfont startIcon" :class="playing && playInfo.id == k.id ? 'icon-stop' : 'icon-kaishi3'"></text>
 				</view>
@@ -107,7 +107,7 @@ export default {
 	.startIcon {
 		margin-left: 15px;
 		font-size: 40rpx;
-		color: #ff9700;
+		color: #e54d42;
 	}
 }
 </style>

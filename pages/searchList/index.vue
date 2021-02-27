@@ -6,7 +6,7 @@
 			<view class="toggle">
 				搜索来源：
 				<view class="cu-tag round" style="padding:0 24rpx" :class="{ active: source == '163' }" @click="toggleSource">网易云音乐</view>
-				<view class="cu-tag round" style="padding:0 24rpx" :class="{ active: source == 'qq' }" @click="toggleSource">qq音乐</view>
+				<!-- <view class="cu-tag round" style="padding:0 24rpx" :class="{ active: source == 'qq' }" @click="toggleSource">qq音乐</view> -->
 			</view>
 			<box-title title="单曲" buttonName="播放全部" iconName="kaishi2" :right="true" className="searchTitle" @handlePlay="handlePlayAllMusic"></box-title>
 
@@ -226,7 +226,7 @@ export default {
 	margin-top: 20rpx;
 	box-sizing: border-box;
 	.active {
-		background: #ff9700;
+		background: #e54d42;
 		color: #fff;
 	}
 	.music-item {

@@ -1,7 +1,7 @@
 <template>
 	<view class="recommend-container ">
-		<view class="bg-gradual-orange">
-			<cu-custom bgColor="bg-gradual-orange">
+		<view class="bg-red">
+			<cu-custom bgColor="bg-red">
 				<block slot="content">纯纯音乐</block>
 			</cu-custom>
 			<view class="cu-bar search">
@@ -136,9 +136,6 @@
 				});
 			}
 
-		},
-		onShareAppMessage() {
-			
 		},
 		mounted() {
 			this.getData()

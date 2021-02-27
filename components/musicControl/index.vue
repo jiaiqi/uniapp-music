@@ -64,6 +64,7 @@ export default {
 			}
 		},
 		async initPlay() {
+			
 			if (this.playInfo && this.playInfo.id) {
 				if (this.playInfo.source) {
 					const { data } = await this.$api.searchQQMusicUrl({
@@ -133,9 +134,9 @@ export default {
 	},
 	watch: {
 		playInfo: {
-			handler(nl, ol) {
-				if (nl && nl.id) {
-					if (!nl.source) {
+			handler(newVal, old) {
+				if (newVal && newVal.id) {
+					if (!newVal.source) {
 						this.checkMusic();
 					} else {
 						this.initPlay();
@@ -144,6 +145,7 @@ export default {
 					this.modelShow = false;
 				}
 			},
+			immediate:true,
 			deep: true
 		}
 	}
@@ -155,7 +157,7 @@ export default {
 	height: 110rpx;
 	width: 100%;
 	position: fixed;
-	bottom: 0;
+	bottom: var(--window-bottom);
 	left: 0;
 	z-index: 9999;
 
@@ -164,7 +166,7 @@ export default {
 		z-index: 20;
 		width: 100%;
 		height: 110rpx;
-		bottom: 0;
+		bottom: var(--window-bottom);
 		border-top: 1px solid rgba(0, 0, 0, 0.15);
 		display: flex;
 		background: #fff;

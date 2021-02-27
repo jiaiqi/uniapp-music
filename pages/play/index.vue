@@ -22,7 +22,7 @@
 		<view class="bottom-control">
 			<view class="progress">
 				<view class="audio-number">{{ format(currentTime) }}</view>
-				<slider class="audio-slider" activeColor="#ff9700" block-size="8" :value="currentTime" :max="duration" @change="handleChange" @changing="slideChange"></slider>
+				<slider class="audio-slider" activeColor="#e54d42" block-size="8" :value="currentTime" :max="duration" @change="handleChange" @changing="slideChange"></slider>
 				<view class="audio-number">{{ format(duration) }}</view>
 			</view>
 			<view class="iconList flex">
@@ -99,6 +99,7 @@ export default {
 		this.$audio.onTimeUpdate(() => {
 			if (!this.seeking) {
 				this.currentTime = this.$audio.currentTime;
+				// 歌词滚动
 				for (var i = 0; i < this.lyricList.length - 1; i++) {
 					var prevTime = this.lyricList[i].time,
 						nextTime = this.lyricList[i + 1].time;
@@ -126,6 +127,9 @@ export default {
 			}
 			this.handleChangePlay('next');
 		});
+		
+		// #endif
+		
 		this.$audio.onEnded(() => {
 			if (this.playList.length == 1) {
 				this.$store.commit('SET_PLAYING', false);
@@ -134,9 +138,6 @@ export default {
 			}
 			this.handleChangePlay('next');
 		});
-		// #endif
-		
-		
 		this.getLikeData();
 	},
 	methods: {
@@ -247,14 +248,14 @@ export default {
 	width: 100%;
 	height: 100%;
 	.lighIcon {
-		color: #ff9700 !important;
+		color: #e54d42 !important;
 	}
 	.lyric-item {
 		color: #fcf7e9;
 		height: 40px;
 		line-height: 40px;
 		&.active {
-			color: #ff9700;
+			color: #e54d42;
 		}
 	}
 	.noLyric {

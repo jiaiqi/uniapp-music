@@ -100,7 +100,7 @@ export default {
 		&.active {
 			.musicName,
 			.musicAuthor {
-				color: #ff9700;
+				color: #e54d42;
 			}
 		}
 		.musicName {

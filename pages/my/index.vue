@@ -2,8 +2,16 @@
 	<div class="my-container">
 		<div class="list-description">
 			<div class="mask">
-				<div class="album-cover bgImg"><open-data type="userAvatarUrl"></open-data></div>
-				<div class="head"><open-data type="userAvatarUrl"></open-data></div>
+				<div class="album-cover bgImg">
+					<!-- #ifdef MP-WEIXIN -->
+					<open-data type="userAvatarUrl"></open-data>
+					<!-- #endif -->
+				</div>
+				<div class="head">
+					<!-- #ifdef MP-WEIXIN -->
+					<open-data type="userAvatarUrl"></open-data>
+					<!-- #endif -->
+				</div>
 				<div class="cover-mask" style="opacity:0.6;"></div>
 			</div>
 		</div>
@@ -22,7 +30,7 @@
 					<image :src="item.al.picUrl + '?param=60y60'" mode="" class="musicImg"></image>
 					<div class="rightInfo">
 						<div class="music-info">
-							<span :style="{ color: item.id == playInfo.id ? '#ff9700' : 'rgb(86,124,166)' }">{{ item.name }}</span>
+							<span :style="{ color: item.id == playInfo.id ? '#e54d42' : 'rgb(86,124,166)' }">{{ item.name }}</span>
 							<span v-if="item.alia.length > 0" style="margin-left: 5px;">({{ item.alia[0] }})</span>
 						</div>
 						<div class="music-info" style="margin-top:6px;">
@@ -80,7 +88,7 @@ export default {
 			const uid = this.userInfo.id;
 			const timestamp = new Date().getTime();
 			const data = await this.$api.getUserInfo({ uid, timestamp });
-			const id=data.playlist[0].id
+			const id = data.playlist[0].id;
 			uni.showLoading({
 				title: '加载中...'
 			});
@@ -169,7 +177,7 @@ export default {
 			display: inline-block;
 			text-align: center;
 			&.active {
-				color: #ff9700;
+				color: #e54d42;
 			}
 		}
 	}

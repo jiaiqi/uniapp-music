@@ -21,7 +21,7 @@
 					<span class="index">{{ index + 1 }}</span>
 					<div class="rightInfo">
 						<div class="music-info">
-							<span :style="{ color: item.id == playInfo.id ? '#ff9700' : 'rgb(86,124,166)' }">{{ item.name }}</span>
+							<span :style="{ color: item.id == playInfo.id ? '#e54d42' : 'rgb(86,124,166)' }">{{ item.name }}</span>
 							<span v-if="item.alia.length > 0" style="margin-left: 5px;">({{ item.alia[0] }})</span>
 						</div>
 						<div class="music-info" style="margin-top:6px;">
