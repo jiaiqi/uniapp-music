@@ -23,10 +23,15 @@ let audio = null
  audio.onPlay(() => {
  	console.log('开始播放了');
  })
- 
+ audio.onError((err)=>{
+	 console.log('播放异常',err)
+ })
+ audio.onWaiting(()=>{
+	 console.log('音频加载中...')
+ })
  audio.onCanplay(() => {
  	console.log('播放开始获取时间');
- 	audio.duration;
+ 	// audio.duration;
  	setTimeout(() => {
  		console.log(audio.duration);
  	}, 30)

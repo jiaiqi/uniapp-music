@@ -96,6 +96,9 @@ const store = new Vuex.Store({
       commit('SET_PLAYING', true)
       commit('SET_PLAYINFO', list[0])
       setCache('PLAY_LIST', list)
+	  // #ifdef H5
+	  Vue.prototype.$audio.play()
+	  // #endif
     },
 
     //切换歌曲  上一首或者下一首
@@ -128,6 +131,9 @@ const store = new Vuex.Store({
       commit('SET_PLAYINFO', val)
       commit('ADD_MUSIC_PLAY', val)
       commit('SET_PLAYING', true)
+	  // #ifdef H5
+	  Vue.prototype.$audio.play()
+	  // #endif
     },
   },
 })

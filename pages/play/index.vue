@@ -113,6 +113,7 @@ export default {
 		this.$audio.onPlay(() => {
 			this.audioSrc = this.$audio.src;
 		});
+		// #ifndef H5
 		this.$audio.onPrev(() => {
 			if (this.playList.length == 1) {
 				return;
@@ -133,6 +134,9 @@ export default {
 			}
 			this.handleChangePlay('next');
 		});
+		// #endif
+		
+		
 		this.getLikeData();
 	},
 	methods: {
