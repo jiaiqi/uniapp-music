@@ -4,11 +4,6 @@ import {
 
 // const baseURL = 'http://localhost:3000'
 const baseURL = 'https://api.jiaiqi.cn'
-// const baseURL = 'http://api.jiaiqi.cn:521'
-// const baseURL = 'https://autumnfish.cn'
-// const baseURL='https://api.klutz.cc'
-// const baseURL='https://tree.xingyuncm.cn'
-// https://aqueous-retreat-34523.herokuapp.com/
 
 
 
@@ -120,7 +115,20 @@ const showError = error => {
 			errorMsg = "请求失败"
 			break
 	}
-
+	if(error.code === 301){
+		uni.showModal({
+			title:'提示',
+			content:'未登录，即将跳转到登录页面',
+			showCancel:false,
+			success(res) {
+				if(res.confirm){
+					uni.navigateTo({
+						url:'/pages/login/index'
+					})
+				}
+			}
+		})
+	}
 	uni.showToast({
 		title: errorMsg,
 		icon: 'none',
